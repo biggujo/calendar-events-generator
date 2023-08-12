@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "bootstrap-icons": "^1.10.5",
+    "date-fns": "^2.30.0",
     "flatpickr": "^4.6.13",
     "glob": "^10.3.3",
     "ics": "^3.2.0",
