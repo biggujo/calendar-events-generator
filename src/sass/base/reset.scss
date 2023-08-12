@@ -30,3 +30,8 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.flatpickr-day.selected {
+  border-color: #0074d9 !important;
+  background-color: #0074d9 !important;
+}

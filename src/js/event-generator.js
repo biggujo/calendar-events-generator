@@ -1,57 +1,53 @@
 import 'ics';
 import { createEvent } from 'ics';
-// or, in ESM: import * as ics from 'ics'
 
-const event = {
-  start: [
-    2023,
-    8,
-    12,
-    17,
-    46,
-  ],
-  duration: {
-    hours: 6,
-    minutes: 30,
-  },
-  title: 'Bolder Boulder',
-  description: 'Annual 10-kilometer run in Boulder, Colorado',
-  location: 'Google Meet',
-  url: 'https://meet.google.com',
-  alarms: [
-    {
-      action: 'display',
-      description: 'Reminder',
-      trigger: {
-        hours: 0,
-        minutes: 5,
-        before: true,
-      },
-    },
-  ],
-  status: 'CONFIRMED',
-  busyStatus: 'BUSY', // organizer: {
-  //   name: 'Admin',
-  //   email: 'Race@BolderBOULDER.com',
-  // },
-  // attendees: [
-  //   {
-  //     name: 'Adam Gibbons',
-  //     email: 'adam@example.com',
-  //     rsvp: true,
-  //     partstat: 'ACCEPTED',
-  //     role: 'REQ-PARTICIPANT',
-  //   },
-  //   {
-  //     name: 'Brittany Seaton',
-  //     email: 'brittany@example2.org',
-  //     dir: 'https://linkedin.com/in/brittanyseaton',
-  //     role: 'OPT-PARTICIPANT',
-  //   },
-  // ],
-};
+export async function generateEvent({
+  title,
+  description,
+  location,
+  url,
+  start,
+  end,
+}) {
+  const event = {
+    start,
+    end,
+    title,
+    description,
+    location,
+    url, // alarms: [
+    //   {
+    //     action: 'display',
+    //     description: 'Reminder',
+    //     trigger: {
+    //       hours: 0,
+    //       minutes: 5,
+    //       before: true,
+    //     },
+    //   },
+    // ],
+    status: 'CONFIRMED',
+    busyStatus: 'BUSY', // organizer: {
+    //   name: 'Admin',
+    //   email: 'Race@BolderBOULDER.com',
+    // },
+    // attendees: [
+    //   {
+    //     name: 'Adam Gibbons',
+    //     email: 'adam@example.com',
+    //     rsvp: true,
+    //     partstat: 'ACCEPTED',
+    //     role: 'REQ-PARTICIPANT',
+    //   },
+    //   {
+    //     name: 'Brittany Seaton',
+    //     email: 'brittany@example2.org',
+    //     dir: 'https://linkedin.com/in/brittanyseaton',
+    //     role: 'OPT-PARTICIPANT',
+    //   },
+    // ],
+  };
 
-export function generateEvent() {
   return createEvent(
     event,
     (error, value) => error ? Promise.reject(error) : Promise.resolve(value),
