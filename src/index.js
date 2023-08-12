@@ -6,7 +6,24 @@ import 'picnic';
 import { generateEvent } from './js/event-generator.js';
 import { downloadFile } from './js/file-downloader.js';
 
+import flatpickr from 'flatpickr';
+import { showBody } from './js/showBody.js';
+
 const PLAIN_TEXT = 'plain/text';
+
+showBody();
+
+const refs = {
+  form: document.getElementById('event-form'),
+};
+
+// refs.form.elements.refs.form.addEventListener('click', handleFormSubmit);
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  console.log(event.currentTarget.elements);
+}
 
 init();
 
@@ -19,3 +36,5 @@ async function init() {
   //   type: PLAIN_TEXT,
   // });
 }
+
+console.log(window.location);
