@@ -1,13 +1,72 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href='/vite.svg' />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset='UTF-8' />
+    <link rel='icon' type='image/svg+xml' href='/vite.svg' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='preload' href='./index.js' as='script' />
     <title>Vite App</title>
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src='./main.js'></script>
+  <body hidden>
+    <header class='header'>
+      <div class='container-main'>
+        <h1 class='title'>Calendar Event Generator</h1>
+      </div>
+    </header>
+    <main class='main'>
+      <section>
+        <div class='container-main'>
+          <form id='event-form'>
+            <div class='block-list'>
+              <div class='block-item'>
+                <h3 class='block-title'>Main information</h3>
+                <label>
+                  Title
+                  <input type='text' name='name' autocomplete='off'>
+                </label>
+                <label>
+                  Description
+                  <input type='text' name='name' autocomplete='off'>
+                </label>
+              </div>
+              <div class='block-item'>
+                <h3 class='block-title'>Date and time</h3>
+                <label>
+                  Start
+                  <input type='text' name='name' autocomplete='off'>
+                </label>
+                <label>
+                  End
+                  <input type='text' name='name' autocomplete='off'>
+                </label>
+              </div>
+              <div class='block-item'>
+                <h3 class='block-title'>Place</h3>
+                <label>
+                  Location
+                  <input type='text' name='name' autocomplete='off'>
+                </label>
+                <label>
+                  URL
+                  <input type='text' name='name' autocomplete='off'>
+                </label>
+              </div>
+              <!--              <div class='block-item'>-->
+              <!--                <h3 class='block-title'>Reminders</h3>-->
+              <!--                <label>-->
+              <!--                  Alarms-->
+              <!--                  <input type='text' name='name' autocomplete='off'>-->
+              <!--                </label>-->
+              <!--              </div>-->
+              <button type='submit' style='width: 200px'>Create event
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script type='module' defer src='./index.js'></script>
   </body>
 </html>
+
