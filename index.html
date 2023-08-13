@@ -5,10 +5,9 @@
     <link rel='icon' type='image/svg+xml' href='/vite.svg' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Vite App</title>
-    <script type="module" crossorigin src="/calendar-events-generator/assets/index-22cea078.js"></script>
-    <link rel="modulepreload" crossorigin href="/calendar-events-generator/assets/_commonjsHelpers-f75eb4ad.js">
-    <link rel="stylesheet" href="/calendar-events-generator/assets/_commonjsHelpers-5747abb2.css">
-    <link rel="stylesheet" href="/calendar-events-generator/assets/index-188b420e.css">
+    <script type="module" crossorigin src="/calendar-events-generator/assets/index-fe4b73f6.js"></script>
+    <link rel="modulepreload" crossorigin href="/calendar-events-generator/assets/showBody-033fd1ee.js">
+    <link rel="stylesheet" href="/calendar-events-generator/assets/showBody-bd27ed75.css">
   </head>
   <body hidden>
     <header class='header'>
@@ -25,12 +24,13 @@
               <div class='block-item'>
                 <h3 class='block-title'>Main information</h3>
                 <label>
-                  Title
-                  <input type='text' name='title' autocomplete='off'>
+                  <span class='required'>Title</span>
+                  <input type='text' name='title' id='title' autocomplete='off'>
                 </label>
                 <label>
-                  Description
-                  <input type='text' name='description' autocomplete='off'>
+                  <span class='required'>Description</span>
+                  <input type='text' name='description' id='description'
+                         autocomplete='off'>
                 </label>
               </div>
               <div class='block-item'>
@@ -38,11 +38,12 @@
                 <div class='block-item-row'>
                   <label>
                     Start
-                    <input type='date' name='start' autocomplete='off'>
+                    <input type='date' name='start' id='start'
+                           autocomplete='off'>
                   </label>
                   <label>
                     End
-                    <input type='date' name='end' autocomplete='off'>
+                    <input type='date' name='end' id='end' autocomplete='off'>
                   </label>
                 </div>
               </div>
@@ -50,11 +51,15 @@
                 <h3 class='block-title'>Place</h3>
                 <label>
                   Location
-                  <input type='text' name='location' autocomplete='off'>
+                  <input type='text' name='location' id='location'
+                         placeholder='Google Meet'
+                         autocomplete='off'>
                 </label>
                 <label>
-                  URL
-                  <input type='text' name='url' autocomplete='off'>
+                  URL (with HTTPS)
+                  <input type='text' name='url' id='url'
+                         placeholder='https://meet.google.com/xxx-xxxx-xxx'
+                         autocomplete='off'>
                 </label>
               </div>
               <!--              <div class='block-item'>-->
@@ -68,10 +73,24 @@
                 <h3>
                   Result (click to copy)
                 </h3>
-                <input class='input-copy' type='text' name='result' readonly
-                       disabled placeholder='Create event to proceed'>
-
+                <label>
+                  Final URL to the event
+                  <input class='result-input' type='text' name='result'
+                         id='result' readonly disabled
+                         placeholder='Create an event to proceed'>
+                </label>
+                <div id='result-data'>
+                  <h4>Event info</h4>
+                  <p><b>Title:</b></p>
+                  <p><b>Description:</b></p>
+                  <p><b>Date and time:</b></p>
+                  <p><b>Duration:</b></p>
+                  <p><b>Location:</b></p>
+                  <p><b>URL:</b></p>
+                </div>
               </div>
+              <span><span
+                class='required'>Field</span> – Required</span>
               <button type='submit' style='width: 200px'>Create event
               </button>
             </div>
