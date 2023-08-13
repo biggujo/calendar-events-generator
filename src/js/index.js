@@ -1,16 +1,11 @@
-import './sass/index.scss';
+import '../sass/index.scss';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'modern-normalize';
 import 'picnic';
 
-import { generateEvent } from './js/event-generator.js';
-import { downloadFile } from './js/file-downloader.js';
-
-import { showBody } from './js/showBody.js';
-import { createDatePicker } from './js/date-picker.js';
+import { showBody } from './service/showBody.js';
+import { createDatePicker } from './service/date-picker.js';
 import { getDate, getHours, getMinutes, getMonth, getYear } from 'date-fns/fp';
-
-const PLAIN_TEXT = 'plain/text';
 
 showBody();
 
@@ -20,12 +15,26 @@ const refs = {
 
 const { elements: formItems } = refs.form;
 
-// console.log(formItems);
+console.log(window.location);
 
+// Create date pickers
 const startDatePicker = createDatePicker(formItems.start);
 const endDatePicker = createDatePicker(formItems.end);
 
 refs.form.addEventListener('submit', handleFormSubmit);
+formItems.result.addEventListener('click', handleResultUrlClick);
+
+function handleResultUrlClick({ target }) {
+  if (target.disabled) {
+    return;
+  }
+
+  target.blur();
+
+  navigator.clipboard.writeText(target.value)
+  .then(() => console.log('Copied to clipboard!'))
+  .catch(() => console.log('Error writing to clipboard!'));
+}
 
 async function handleFormSubmit(event) {
   event.preventDefault();
@@ -40,14 +49,7 @@ async function handleFormSubmit(event) {
   const startDateArray = createDateArray(new Date(startDatePicker.selectedDates[0]));
   const endDateArray = createDateArray(new Date(endDatePicker.selectedDates[0]));
 
-  // console.log(title);
-  // console.log(description);
-  // console.log(location);
-  // console.log(url);
-  // console.log(startDateArray);
-  // console.log(endDateArray);
-
-  const eventData = await generateEvent({
+  const urlParams = new URLSearchParams({
     title,
     description,
     location,
@@ -56,11 +58,22 @@ async function handleFormSubmit(event) {
     end: endDateArray,
   });
 
-  downloadFile({
-    data: eventData,
-    filename: 'test.ics',
-    type: PLAIN_TEXT,
-  });
+  const {
+    origin,
+    pathname,
+  } = window.location;
+
+  let currentPath;
+  if (pathname === '/') {
+    currentPath = origin;
+  } else {
+    currentPath = `${origin}${pathname.replace('/index.html', '')}`;
+  }
+
+  const pathToGetPage = `${currentPath}/get.html`;
+
+  enableResultInput();
+  setResultValue(`${pathToGetPage}?${urlParams}`);
 
   function createDateArray(dateInstance) {
     return [
@@ -71,18 +84,12 @@ async function handleFormSubmit(event) {
       getMinutes(dateInstance),
     ];
   }
+
+  function setResultValue(value) {
+    refs.form.elements.result.value = value;
+  }
+
+  function enableResultInput() {
+    refs.form.elements.result.removeAttribute('disabled');
+  }
 }
-
-// init();
-
-async function init() {
-  const eventData = await generateEvent();
-  console.log(eventData);
-  // downloadFile({
-  //   data: eventData,
-  //   filename: '123.ics',
-  //   type: PLAIN_TEXT,
-  // });
-}
-
-// console.log(window.location);

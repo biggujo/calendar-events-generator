@@ -1,0 +1,10 @@
+.input-copy {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  
+  cursor: pointer;
+
+  &:disabled {
+    background-color: #dddddd;
+  }
+}

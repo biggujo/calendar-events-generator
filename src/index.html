@@ -4,7 +4,6 @@
     <meta charset='UTF-8' />
     <link rel='icon' type='image/svg+xml' href='/vite.svg' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel='preload' href='./index.js' as='script' />
     <title>Vite App</title>
   </head>
   <body hidden>
@@ -16,6 +15,7 @@
     <main class='main'>
       <section>
         <div class='container-main'>
+          <h2>Form</h2>
           <form id='event-form'>
             <div class='block-list'>
               <div class='block-item'>
@@ -60,6 +60,14 @@
               <!--                  <input type='text' name='name' autocomplete='off'>-->
               <!--                </label>-->
               <!--              </div>-->
+              <div class='block-item'>
+                <h3>
+                  Result (click to copy)
+                </h3>
+                <input class='input-copy' type='text' name='result' readonly
+                       disabled placeholder='Create event to proceed'>
+
+              </div>
               <button type='submit' style='width: 200px'>Create event
               </button>
             </div>
@@ -68,7 +76,7 @@
       </section>
     </main>
 
-    <script type='module' defer src='./index.js'></script>
+    <script type='module' defer src='./js/index.js'></script>
   </body>
 </html>
 
