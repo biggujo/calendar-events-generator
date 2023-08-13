@@ -3,11 +3,13 @@ import 'modern-normalize';
 import 'picnic';
 
 import { refs, applySettings } from './service';
-import { showBody, createDatePicker } from './utils';
+import { showBody, createDatePicker, addFormValidation } from './utils';
 import { handleFormSubmit, handleResultUrlClick } from './handlers';
 
 applySettings();
 showBody();
+
+addFormValidation(refs.form);
 
 const { elements: formItems } = refs.form;
 

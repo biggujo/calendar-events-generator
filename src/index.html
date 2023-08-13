@@ -22,11 +22,12 @@
                 <h3 class='block-title'>Main information</h3>
                 <label>
                   Title
-                  <input type='text' name='title' autocomplete='off'>
+                  <input type='text' name='title' id='title' autocomplete='off'>
                 </label>
                 <label>
                   Description
-                  <input type='text' name='description' autocomplete='off'>
+                  <input type='text' name='description' id='description'
+                         autocomplete='off'>
                 </label>
               </div>
               <div class='block-item'>
@@ -34,11 +35,12 @@
                 <div class='block-item-row'>
                   <label>
                     Start
-                    <input type='date' name='start' autocomplete='off'>
+                    <input type='date' name='start' id='start'
+                           autocomplete='off'>
                   </label>
                   <label>
                     End
-                    <input type='date' name='end' autocomplete='off'>
+                    <input type='date' name='end' id='end' autocomplete='off'>
                   </label>
                 </div>
               </div>
@@ -46,11 +48,12 @@
                 <h3 class='block-title'>Place</h3>
                 <label>
                   Location
-                  <input type='text' name='location' autocomplete='off'>
+                  <input type='text' name='location' id='location'
+                         autocomplete='off'>
                 </label>
                 <label>
                   URL
-                  <input type='text' name='url' autocomplete='off'>
+                  <input type='text' name='url' id='url' autocomplete='off'>
                 </label>
               </div>
               <!--              <div class='block-item'>-->
@@ -66,8 +69,9 @@
                 </h3>
                 <label>
                   Final URL
-                  <input class='result-input' type='text' name='result' readonly
-                         disabled placeholder='Create an event to proceed'>
+                  <input class='result-input' type='text' name='result'
+                         id='result' readonly disabled
+                         placeholder='Create an event to proceed'>
                 </label>
                 <div id='result-data'>
                   <h4>Event info</h4>
