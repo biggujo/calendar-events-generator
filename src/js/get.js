@@ -2,10 +2,7 @@ import '../sass/index.scss';
 import 'modern-normalize';
 import 'picnic';
 
-import { showBody } from './service/showBody.js';
-import { generateEvent } from './service/event-generator.js';
-import { downloadFile } from './service/file-downloader.js';
-import { getUrlParams } from './service/url-params-service.js';
+import { showBody, downloadFile, getUrlParams } from './utils';
 import { createEvent } from 'ics';
 
 const PLAIN_TEXT = 'plain/text';
