@@ -4,8 +4,10 @@
 
   cursor: pointer;
 
-  &:active {
-    border: 1px solid green;
+  &:enabled {
+    &:active {
+      border: 1px solid green;
+    }
   }
 
   &:disabled {
