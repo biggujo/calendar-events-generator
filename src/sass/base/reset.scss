@@ -31,7 +31,15 @@ img {
   height: auto;
 }
 
+/* Flatpickr reset */
+
 .flatpickr-day.selected {
   border-color: #0074d9 !important;
   background-color: #0074d9 !important;
+}
+
+/* Picnic reset */
+
+input {
+  transition: none !important;
 }

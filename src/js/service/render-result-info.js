@@ -19,12 +19,13 @@ export function renderResultInfo({
   },
 }) {
   element.innerHTML = `
+    <h4>Event info</h4>
     <p><b>Title:</b> ${title}</p>
     <p><b>Description:</b> ${description}</p>
     <p><b>Date and time:</b> ${formatDateAndTime(start, end)}</p>
     <p><b>Duration:</b> ${getDuration(start, end)}</p>
-    <p><b>Location:</b> ${location}</p>
-    <p><b>URL:</b> ${url}</p>
+    <p><b>Location:</b> ${location || '~none~'}</p>
+    <p><b>URL:</b> ${url || '~none~'}</p>
   `;
 
   function getDuration(start, end) {

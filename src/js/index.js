@@ -39,17 +39,6 @@ function handleResultUrlClick({ target }) {
   .catch(() => console.log('Error writing to clipboard!'));
 }
 
-const startDate = new Date(startDatePicker.selectedDates[0]);
-const endDate = new Date(endDatePicker.selectedDates[0]);
-
-renderResultInfo({
-  element: refs.resultData,
-  data: {
-    start: startDate,
-    end: endDate,
-  },
-});
-
 async function handleFormSubmit(event) {
   event.preventDefault();
 

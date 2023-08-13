@@ -16,10 +16,13 @@
 
 .block-item-row {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 15px;
-}
 
+  @media screen and (min-width: $breakpoint-tablet-width) {
+    flex-direction: row;
+  }
+}
 
 .block-title {
   padding: 0;
