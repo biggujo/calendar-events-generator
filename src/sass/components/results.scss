@@ -1,8 +1,12 @@
-.input-copy {
+.result-input {
   font-family: "Courier New", monospace;
   font-weight: 700;
-  
+
   cursor: pointer;
+
+  &:active {
+    border: 1px solid green;
+  }
 
   &:disabled {
     background-color: #dddddd;
