@@ -25,7 +25,7 @@ export function renderResultInfo({
     <p><b>Date and time:</b> ${formatDateAndTime(start, end)}</p>
     <p><b>Duration:</b> ${getDuration(start, end)}</p>
     <p><b>Location:</b> ${location || '~none~'}</p>
-    <p><b>URL:</b> ${url || '~none~'}</p>
+    <p><b>URL:</b> ${`<a href='${url}'>${url}</a> (<span style='color: red'>Please, test the link</span>)` || '~none~'}</p>
   `;
 
   function getDuration(start, end) {
