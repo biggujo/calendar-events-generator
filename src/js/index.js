@@ -1,6 +1,6 @@
-import '../sass/index.scss';
 import 'modern-normalize';
 import 'picnic';
+import '../sass/index.scss';
 
 import { refs, applySettings } from './service';
 import {

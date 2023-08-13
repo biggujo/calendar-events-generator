@@ -1,6 +1,9 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-  padding-block: 25px !important;
+  padding-block: 25px;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+
 }
 
 h1,
@@ -34,22 +37,36 @@ img {
 /* Flatpickr reset */
 
 .flatpickr-day.selected {
-  border-color: #0074d9 !important;
-  background-color: #0074d9 !important;
+  border-color: var(--accentColor) !important;
+  background-color: var(--accentColor) !important;
+}
+
+.flatpickr-input {
+  background-color: var(--backgroundColorAccent);
+  color: var(--textColor);
 }
 
 /* Picnic reset */
 
 input[type=text] {
+  background-color: var(--backgroundColorAccent);
+  color: var(--textColor);
+
   &:active, &:focus {
-    outline: 2px solid #0074d9;
+    outline: 2px solid var(--accentColor);
   }
 
-  transition: none !important;
+  transition: none;
 }
 
 button[type=submit] {
+  background-color: var(--accentColor);
+
   &:active, &:focus {
     transition: none;
   }
+}
+
+.just-validate-error-label {
+  color: var(--errorColor) !important;
 }

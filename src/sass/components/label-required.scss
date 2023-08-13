@@ -1,6 +1,6 @@
 .required {
   &:after {
-    color: rgb(184, 17, 17);
+    color: var(--errorColor);
 
     content: " *";
   }

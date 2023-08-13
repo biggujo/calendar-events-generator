@@ -3,3 +3,25 @@ $breakpoint-tablet-width: 768px;
 
 $breakpoint-mobile-container-padding-inline: 20px;
 $breakpoint-tablet-container-padding-inline: 40px;
+
+:root {
+  --textColor: #111111;
+  --backgroundColor: #ffffff;
+  --backgroundColorAccent: var(--backgroundColor);
+  --backgroundColorDisabled: #dddddd;
+  --accentColor: #0074d9;
+  --errorColor: #b81111;
+  --successColor: #33c682;
+
+  @media (prefers-color-scheme: dark) {
+    --textColor: #eeeeee;
+    --backgroundColor: #282c34;
+    --backgroundColorAccent: #1e2229;
+    --backgroundColorDisabled: #000000;
+    --accentColor: #61afef;
+    --errorColor: #e06c75;
+    --successColor: #98c379;
+  }
+}
+
+
