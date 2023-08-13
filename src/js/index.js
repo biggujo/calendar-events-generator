@@ -1,5 +1,4 @@
 import '../sass/index.scss';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'modern-normalize';
 import 'picnic';
 
