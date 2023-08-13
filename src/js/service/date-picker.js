@@ -12,6 +12,7 @@ export const createDatePicker = (element) => {
   const currentDate = Date.now();
   console.log(new Date().getHours() + 1);
   return flatpickr(element, {
+    dateFormat: 'd.m.Y о H:i',
     enableTime: true,
     time_24hr: true,
     minDate: currentDate,
