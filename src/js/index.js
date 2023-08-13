@@ -58,8 +58,22 @@ addFormValidation(refs.form)
 const { elements: formItems } = refs.form;
 
 // Create date pickers
-const startDatePicker = createDatePicker(formItems.start);
+const startDatePicker = createDatePicker(formItems.start,
+  handleOnStartDatePickerChange,
+);
+
 const endDatePicker = createDatePicker(formItems.end);
+
+function handleOnStartDatePickerChange([startDate]) {
+  const [endDate] = endDatePicker.selectedDates;
+
+  endDatePicker.config.minDate = startDate;
+
+  if (startDate > endDate) {
+    endDatePicker.config.minDate = startDate;
+    endDatePicker.setDate(startDate);
+  }
+}
 
 refs.form.addEventListener('submit', handleFormSubmit);
 formItems.result.addEventListener('click', handleResultUrlClick);
