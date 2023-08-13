@@ -17,6 +17,7 @@
     "gh-pages": "^6.0.0",
     "glob": "^10.3.3",
     "ics": "^3.2.0",
+    "just-validate": "^4.2.0",
     "modern-normalize": "^2.0.0",
     "picnic": "^7.1.0",
     "sass": "^1.65.1"
