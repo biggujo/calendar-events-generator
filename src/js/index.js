@@ -6,11 +6,14 @@ import 'picnic';
 import { showBody } from './service/showBody.js';
 import { createDatePicker } from './service/date-picker.js';
 import { getDate, getHours, getMinutes, getMonth, getYear } from 'date-fns/fp';
+import { renderResultInfo } from './service/render-result-info.js';
+import './service/settings.js';
 
 showBody();
 
 const refs = {
   form: document.getElementById('event-form'),
+  resultData: document.getElementById('result-data'),
 };
 
 const { elements: formItems } = refs.form;
@@ -36,6 +39,17 @@ function handleResultUrlClick({ target }) {
   .catch(() => console.log('Error writing to clipboard!'));
 }
 
+const startDate = new Date(startDatePicker.selectedDates[0]);
+const endDate = new Date(endDatePicker.selectedDates[0]);
+
+renderResultInfo({
+  element: refs.resultData,
+  data: {
+    start: startDate,
+    end: endDate,
+  },
+});
+
 async function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -46,8 +60,11 @@ async function handleFormSubmit(event) {
   const { value: location } = elements.location;
   const { value: url } = elements.url;
 
-  const startDateArray = createDateArray(new Date(startDatePicker.selectedDates[0]));
-  const endDateArray = createDateArray(new Date(endDatePicker.selectedDates[0]));
+  const startDate = new Date(startDatePicker.selectedDates[0]);
+  const endDate = new Date(endDatePicker.selectedDates[0]);
+
+  const startDateArray = createDateArray(startDate);
+  const endDateArray = createDateArray(endDate);
 
   const urlParams = new URLSearchParams({
     title,
@@ -56,6 +73,18 @@ async function handleFormSubmit(event) {
     url,
     start: startDateArray,
     end: endDateArray,
+  });
+
+  renderResultInfo({
+    element: refs.resultData,
+    data: {
+      title,
+      description,
+      location,
+      url,
+      start: startDate,
+      end: endDate,
+    },
   });
 
   const {
