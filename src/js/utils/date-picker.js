@@ -2,12 +2,16 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { roundToNearestMinutes } from 'date-fns';
 
-export const createDatePicker = (element, onChange) => {
-  const currentDate = getMinDate();
+export const createDatePicker = ({
+  element,
+  givenInitialDate = new Date(),
+  onChange,
+}) => {
+  const initialDate = getMinDate(givenInitialDate);
   return flatpickr(element, {
     dateFormat: 'd.m.Y о H:i',
-    defaultDate: currentDate,
-    minDate: currentDate,
+    defaultDate: initialDate,
+    minDate: initialDate,
     enableTime: true,
     minuteIncrement: 15,
     time_24hr: true,
@@ -16,8 +20,8 @@ export const createDatePicker = (element, onChange) => {
   });
 };
 
-function getMinDate() {
-  return roundToNearestMinutes(new Date(), {
+export function getMinDate(date) {
+  return roundToNearestMinutes(date, {
     nearestTo: 30,
     roundingMethod: 'ceil',
   });

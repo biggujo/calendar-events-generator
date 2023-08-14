@@ -13,6 +13,9 @@ import {
   setDownloadLinkValue,
 } from './utils';
 import { handleFormSubmit, handleResultUrlClick } from './handlers';
+import { addHours, addMinutes, differenceInMinutes } from 'date-fns';
+
+const MIN_EVT_DUR_IN_MINUTES = 30;
 
 applySettings();
 showBody();
@@ -59,21 +62,28 @@ addFormValidation(refs.form)
 
 const { elements: formItems } = refs.form;
 
-// Create date pickers
-const startDatePicker = createDatePicker(formItems.start,
-  handleOnStartDatePickerChange,
-);
+const currentDate = new Date();
 
-const endDatePicker = createDatePicker(formItems.end);
+// Create date pickers
+const startDatePicker = createDatePicker({
+  element: formItems.start,
+  givenInitialDate: currentDate,
+  onChange: handleOnStartDatePickerChange,
+});
+
+const endDatePicker = createDatePicker({
+  element: formItems.end,
+  givenInitialDate: addMinutes(currentDate, MIN_EVT_DUR_IN_MINUTES),
+});
 
 function handleOnStartDatePickerChange([startDate]) {
   const [endDate] = endDatePicker.selectedDates;
 
-  endDatePicker.config.minDate = startDate;
-
-  if (startDate > endDate) {
-    endDatePicker.config.minDate = startDate;
-    endDatePicker.setDate(startDate);
+  if (differenceInMinutes(endDate, startDate) < MIN_EVT_DUR_IN_MINUTES) {
+    endDatePicker.config.minDate = addMinutes(startDate,
+      MIN_EVT_DUR_IN_MINUTES,
+    );
+    endDatePicker.setDate(addMinutes(startDate, MIN_EVT_DUR_IN_MINUTES));
   }
 }
 
