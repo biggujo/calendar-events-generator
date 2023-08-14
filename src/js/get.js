@@ -2,12 +2,16 @@ import '../sass/index.scss';
 import 'modern-normalize';
 import 'picnic';
 
-import { showBody, downloadFile, getUrlParams } from './utils';
+import {
+  showBody, downloadFile, getUrlParams, renderResultInfo,
+} from './utils';
 import { createEvent } from 'ics';
 
 const PLAIN_TEXT = 'plain/text';
 
 const urlParameters = getUrlParams();
+
+console.log(urlParameters);
 
 showBody();
 init();
@@ -20,7 +24,21 @@ function init() {
 
   const refs = {
     createIcsButton: document.getElementById('create-ics-button'),
+    eventContainerRef: document.getElementById('event-info-container'),
   };
+
+  renderResultInfo({
+    element: refs.eventContainerRef,
+    data: {
+      title: urlParameters.title,
+      description: urlParameters.description,
+      location: urlParameters.location,
+      url: urlParameters.url,
+    },
+    startDate: urlParameters.startDate,
+    endDate: urlParameters.endDate,
+    shouldShowEmpty: false,
+  });
 
   refs.createIcsButton.addEventListener('click', handleCreateIcsClick);
 

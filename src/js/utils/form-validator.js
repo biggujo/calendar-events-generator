@@ -15,19 +15,6 @@ export function addFormValidation(formEl) {
       value: 90,
     },
   ])
-  .addField('#description', [
-    {
-      rule: 'required',
-    },
-    {
-      rule: 'minLength',
-      value: 3,
-    },
-    {
-      rule: 'maxLength',
-      value: 90,
-    },
-  ])
   .addField('#location', [
     {
       rule: 'minLength',

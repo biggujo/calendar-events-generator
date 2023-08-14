@@ -1,4 +1,4 @@
-import { formatDuration } from 'date-fns';
+import { formatDuration, parse } from 'date-fns';
 import {
   getDate,
   getHours,
@@ -32,8 +32,8 @@ export function createDownloadLink({
     description,
     location,
     url,
-    start: startDateArray,
-    end: endDateArray,
+    startDate: startDateArray,
+    endDate: endDateArray,
   });
 
   const {
@@ -90,18 +90,52 @@ export function renderResultInfo({
   },
   startDate,
   endDate,
+  shouldShowEmpty,
+  isDebug,
 }) {
-  console.log(url);
-  console.log(element);
+  if (typeof startDate === 'string') {
+    startDate = parseStringDate(startDate);
+    console.log(startDate);
+  }
+
+  console.log(endDate);
+  if (typeof endDate === 'string') {
+    endDate = parseStringDate(endDate);
+    console.log(endDate);
+  }
+
   element.innerHTML = `
     <h4>Event info</h4>
     <p><b>Title:</b> ${title}</p>
-    <p><b>Description:</b> ${description}</p>
+  `;
+
+  if (description || shouldShowEmpty) {
+    element.innerHTML += `<p><b>Description:</b> ${description || '~none~'}</p>`;
+  }
+
+  element.innerHTML += `
     <p><b>Date and time:</b> ${formatDateAndTime(startDate, endDate)}</p>
     <p><b>Duration:</b> ${getDuration(startDate, endDate)}</p>
-    <p><b>Location:</b> ${location || '~none~'}</p>
-    <p><b>URL:</b> ${url && `<a href='${url}'>${url}</a> (<span style='color: rgb(184, 17, 17)'>Please, test the link</span>)` || '~none~'}</p>
   `;
+
+  if (location || shouldShowEmpty) {
+    element.innerHTML += `<p><b>Location:</b> ${location || '~none~'}</p>`;
+  }
+
+  if (url || shouldShowEmpty) {
+    element.innerHTML += `
+      <p>
+        <b>URL: </b>
+        ${url && `<a href='${url}'>${url}</a>`}
+        ${isDebug && url ? `(<span style='color: rgb(184, 17, 17)'>Please, test the link</span>)` : ``}
+        ${!url ? `~none~` : ``}
+      </p>
+    `;
+  }
+
+  function parseStringDate(string) {
+    return parse(string, 'uuuu,M,d,H,m', new Date());
+  }
 
   function getDuration(start, end) {
     return formatDuration(intervalToDuration({

@@ -42,6 +42,8 @@ addFormValidation(refs.form)
     },
     startDate,
     endDate,
+    shouldShowEmpty: true,
+    isDebug: true,
   });
 
   refs.form.elements.result.removeAttribute('disabled');
