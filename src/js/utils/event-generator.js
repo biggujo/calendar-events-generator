@@ -1,21 +1,24 @@
-import 'ics';
 import { createEvent } from 'ics';
+import { getDate, getHours, getMinutes, getMonth, getYear } from 'date-fns/fp';
 
 export async function generateEvent({
   title,
   description,
   location,
   url,
-  start,
-  end,
+  startDate,
+  endDate,
 }) {
+  const start = startDate.split(',').map((num) => Number(num));
+  const end = endDate.split(',').map((num) => Number(num));
+
   const event = {
     start,
     end,
     title,
     description,
     location,
-    url, // alarms: [
+    url: url || undefined, // alarms: [
     //   {
     //     action: 'display',
     //     description: 'Reminder',

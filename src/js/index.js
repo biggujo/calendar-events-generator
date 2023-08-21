@@ -24,8 +24,6 @@ addFormValidation(refs.form)
 .onSuccess(() => {
   const formData = Object.fromEntries(new FormData(refs.form));
 
-  console.log(formData);
-
   const startDate = new Date(startDatePicker.selectedDates[0]);
   const endDate = new Date(endDatePicker.selectedDates[0]);
 

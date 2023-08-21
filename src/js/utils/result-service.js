@@ -95,13 +95,10 @@ export function renderResultInfo({
 }) {
   if (typeof startDate === 'string') {
     startDate = parseStringDate(startDate);
-    console.log(startDate);
   }
-
-  console.log(endDate);
+  
   if (typeof endDate === 'string') {
     endDate = parseStringDate(endDate);
-    console.log(endDate);
   }
 
   element.innerHTML = `

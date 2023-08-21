@@ -3,15 +3,12 @@ import 'modern-normalize';
 import 'picnic';
 
 import {
-  showBody, downloadFile, getUrlParams, renderResultInfo,
+  generateEvent, showBody, downloadFile, getUrlParams, renderResultInfo,
 } from './utils';
-import { createEvent } from 'ics';
 
 const PLAIN_TEXT = 'plain/text';
 
 const urlParameters = getUrlParams();
-
-console.log(urlParameters);
 
 showBody();
 init();
@@ -44,7 +41,7 @@ function init() {
 
   async function handleCreateIcsClick() {
     try {
-      const eventData = (await createEvent(urlParameters));
+      const eventData = (await generateEvent(urlParameters));
 
       if (eventData.error) {
         throw new Error(eventData.error.message);
