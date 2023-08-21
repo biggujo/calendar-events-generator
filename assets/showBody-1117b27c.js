@@ -61,7 +61,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     <h4>Event info</h4>
     <p><b>Title:</b> ${t}</p>
   `,(e||s)&&(a.innerHTML+=`<p><b>Description:</b> ${e||"~none~"}</p>`),a.innerHTML+=`
-    <p><b>Date and time:</b> ${m(o,i)}</p>
+    <p><b>Date and time:</b> ${m(o,i)} (Kyiv)</p>
     <p><b>Duration:</b> ${d(o,i)}</p>
   `,(r||s)&&(a.innerHTML+=`<p><b>Location:</b> ${r||"~none~"}</p>`),(n||s)&&(a.innerHTML+=`
       <p>
