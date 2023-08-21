@@ -799,6 +799,11 @@ strip-outer@^1.0.1:
   dependencies:
     escape-string-regexp "^1.0.2"
 
+timezones-ical-library@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/timezones-ical-library/-/timezones-ical-library-1.7.1.tgz#638abce1cb96cc98003172f9a73491206848ad5c"
+  integrity sha512-kMklJHvitGSl51ewFyDuFmgN+QRM2y4FmW6bOSl+etzUfOkGVWRmoGAoyaNunmVFY5jw0Puezg2cXwvsgaOkFQ==
+
 tiny-case@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/tiny-case/-/tiny-case-1.0.3.tgz#d980d66bc72b5d5a9ca86fb7c9ffdb9c898ddd03"

@@ -21,6 +21,7 @@
     "modern-normalize": "^2.0.0",
     "notiflix": "^3.2.6",
     "picnic": "^7.1.0",
-    "sass": "^1.65.1"
+    "sass": "^1.65.1",
+    "timezones-ical-library": "^1.7.1"
   }
 }

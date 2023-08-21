@@ -5,6 +5,7 @@ import 'picnic';
 import {
   generateEvent, showBody, downloadFile, getUrlParams, renderResultInfo,
 } from './utils';
+import { tzlib_get_ical_block } from 'timezones-ical-library';
 
 const PLAIN_TEXT = 'plain/text';
 
@@ -41,17 +42,29 @@ function init() {
 
   async function handleCreateIcsClick() {
     try {
-      const eventData = (await generateEvent(urlParameters));
+      let eventData = (await generateEvent(urlParameters));
+
+      eventData = eventData.split('\r\n');
+
+      eventData.splice(6, 0, tzlib_get_ical_block('Europe/Kyiv')[0]);
+
+      console.log(eventData);
+
+      // console.log(tzlib_get_ical_block('Europe/Kyiv')[0]);
+      //
+      // eventData = eventData.splice(2, 0, '123').join('\r\n');
+      //
+      // console.log(eventData);
 
       if (eventData.error) {
         throw new Error(eventData.error.message);
       }
 
-      downloadFile({
-        data: eventData,
-        filename: 'test.ics',
-        type: PLAIN_TEXT,
-      });
+      // downloadFile({
+      //   data: eventData,
+      //   filename: 'test.ics',
+      //   type: PLAIN_TEXT,
+      // });
     } catch (error) {
       console.log(error);
     }
