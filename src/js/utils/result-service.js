@@ -96,7 +96,7 @@ export function renderResultInfo({
   if (typeof startDate === 'string') {
     startDate = parseStringDate(startDate);
   }
-  
+
   if (typeof endDate === 'string') {
     endDate = parseStringDate(endDate);
   }
@@ -111,7 +111,7 @@ export function renderResultInfo({
   }
 
   element.innerHTML += `
-    <p><b>Date and time:</b> ${formatDateAndTime(startDate, endDate)}</p>
+    <p><b>Date and time:</b> ${formatDateAndTime(startDate, endDate)} (Kyiv)</p>
     <p><b>Duration:</b> ${getDuration(startDate, endDate)}</p>
   `;
 
