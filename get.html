@@ -5,9 +5,9 @@
     <link rel='icon' type='image/svg+xml' href='/vite.svg' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Vite App</title>
-    <script type="module" crossorigin src="/calendar-events-generator/assets/get-f781dc62.js"></script>
-    <link rel="modulepreload" crossorigin href="/calendar-events-generator/assets/showBody-1117b27c.js">
-    <link rel="stylesheet" href="/calendar-events-generator/assets/showBody-39de4b1e.css">
+    <script type="module" crossorigin src="/calendar-events-generator/assets/get-dd1f2f5a.js"></script>
+    <link rel="modulepreload" crossorigin href="/calendar-events-generator/assets/notiflix-aio-3.2.6.min-495b74d4.js">
+    <link rel="stylesheet" href="/calendar-events-generator/assets/notiflix-aio-3.2.6-1add6869.css">
   </head>
   <body hidden>
     <main>
@@ -15,8 +15,15 @@
         <div class='container-main'>
           <h1>You have been invited to&nbsp;an&nbsp;event</h1>
           <div class='event-info-container' id='event-info-container'></div>
-          <button id='create-ics-button' type='button'>Download event file
-          </button>
+          <h3>Get the event</h3>
+          <div class='button-list'>
+            <button id='create-ics-button' type='button'>An event file (any app)
+            </button>
+            <a id='create-gcal-event-link' href='' target='_blank'>
+              <button type='button'>A Google Calendar event
+              </button>
+            </a>
+          </div>
         </div>
       </section>
     </main>
