@@ -19,6 +19,7 @@
     "ics": "^3.2.0",
     "just-validate": "^4.2.0",
     "modern-normalize": "^2.0.0",
+    "notiflix": "^3.2.6",
     "picnic": "^7.1.0",
     "sass": "^1.65.1"
   }

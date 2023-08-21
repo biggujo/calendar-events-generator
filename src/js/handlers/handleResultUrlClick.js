@@ -1,3 +1,5 @@
+import { Notify } from 'notiflix';
+
 export function handleResultUrlClick({ target }) {
   copyToClipboard(target);
 }
@@ -10,6 +12,6 @@ function copyToClipboard(targetEl) {
   targetEl.blur();
 
   navigator.clipboard.writeText(targetEl.value)
-  .then(() => console.log('Copied to clipboard!'))
-  .catch(() => console.log('Error writing to clipboard!'));
+  .then(() => Notify.success('Copied to clipboard!'))
+  .catch(() => Notify.failure('Error writing to clipboard!'));
 }
