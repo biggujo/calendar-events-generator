@@ -70,4 +70,4 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         ${l&&n?"(<span style='color: rgb(184, 17, 17)'>Please, test the link</span>)":""}
         ${n?"":"~none~"}
       </p>
-    `);function c(v){return bu(v,"uuuu,M,d,H,m",new Date)}function d(v,g){return cs(Ts({start:v,end:g}),{format:["days","hours","minutes"]})}function m(v,g){return tt(pn,v)===tt(pn,g)?`${tt(nn,v)} to ${tt(na,g)}`:`${tt(nn,v)} to ${tt(nn,g)}`}}function el(){document.body.removeAttribute("hidden")}export{Ku as J,Ri as a,_ as b,Gu as c,La as d,Qu as e,ae as f,In as g,Xu as h,Ju as i,Zu as j,to as k,Bu as l,k as r,el as s,ee as t};
+    `);function c(v){return bu(v,"uuuu,M,d,H,m",new Date)}function d(v,g){return cs(Ts({start:v,end:g}),{format:["days","hours","minutes"]})}function m(v,g){return tt(pn,v)===tt(pn,g)?`${tt(nn,v)} to ${tt(na,g)}`:`${tt(nn,v)} to ${tt(nn,g)}`}}function el(){document.body.removeAttribute("hidden")}export{Ku as J,Ri as a,_ as b,Aa as c,Gu as d,La as e,ae as f,In as g,Qu as h,Xu as i,Ju as j,Zu as k,to as l,Bu as m,k as r,el as s,ee as t};
