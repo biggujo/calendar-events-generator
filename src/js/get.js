@@ -3,9 +3,15 @@ import 'picnic';
 import '../sass/index.scss';
 
 import {
-  generateEvent, showBody, downloadFile, getUrlParams, renderResultInfo,
+  generateEvent,
+  showBody,
+  downloadFile,
+  getUrlParams,
+  renderResultInfo,
+  getDownloadLinkByData,
 } from './utils';
 import { tzlib_get_ical_block } from 'timezones-ical-library';
+import { Notify } from 'notiflix';
 
 const PLAIN_TEXT = 'plain/text';
 
@@ -16,14 +22,19 @@ init();
 
 function init() {
   if (isEmptyObj(urlParameters)) {
-    console.log('Parameters are empty');
+    Notify.failure('Parameters are empty');
     return;
   }
 
   const refs = {
-    createIcsButton: document.getElementById('create-ics-button'),
     eventContainerRef: document.getElementById('event-info-container'),
+    createIcsButton: document.getElementById('create-ics-button'),
+    createGCalEventLink: document.getElementById('create-gcal-event-link'),
   };
+
+  refs.createGCalEventLink.setAttribute('href',
+    getDownloadLinkByData(urlParameters),
+  );
 
   renderResultInfo({
     element: refs.eventContainerRef,

@@ -102,7 +102,7 @@ export function renderResultInfo({
   }
 
   element.innerHTML = `
-    <h4>Event info</h4>
+    <h2>Event info</h2>
     <p><b>Title:</b> ${title}</p>
   `;
 
@@ -130,10 +130,6 @@ export function renderResultInfo({
     `;
   }
 
-  function parseStringDate(string) {
-    return parse(string, 'uuuu,M,d,H,m', new Date());
-  }
-
   function getDuration(start, end) {
     return formatDuration(intervalToDuration({
       start,
@@ -158,4 +154,8 @@ export function renderResultInfo({
       end,
     )}`;
   }
+}
+
+export function parseStringDate(string) {
+  return parse(string, 'uuuu,M,d,H,m', new Date());
 }
